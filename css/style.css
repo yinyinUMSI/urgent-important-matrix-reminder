@@ -1,0 +1,93 @@
+body {
+	height: 100%;
+}
+
+.sepaGroup {
+	height: 100%;
+}
+.addButton {
+	position: fixed;
+	font-size: 48px;
+	/*color: blue;*/
+	right: 80px;
+	top: 80px;
+	z-index: 1;
+	text-align: center;
+	padding: auto auto;
+	background-color: white;
+	color: rgb(80,133,236);
+	height: 48px;
+	line-height: 48px;
+}
+
+#notShow {
+	display: none;
+	position: fixed;
+	background-color: white;
+	float: right;
+	border: 2px solid grey;
+	width: 20%;
+	right: 100px;
+	top: 100px;
+	z-index: 0;
+}
+
+
+
+.formLabel {
+	display: block;
+	/*height: 40px;*/
+	width: 80%;
+	margin: 15px 30px 5px 30px;
+}
+
+.inputShort {
+	display: block;
+	width: 80%;
+	line-height: 25px;
+	margin: 5px 30px;
+
+}
+
+.inputLong {
+	display: block;
+	width: 80%;
+	margin: 5px 30px;
+}
+
+.radioLine {
+	/*display: inline;*/
+	float: left;
+	margin: 3px 5px;
+}
+
+.radioGroup {
+	width: 80%;
+	margin: 5px 27px;
+}
+
+.clearFix {
+	clear: both;
+}
+
+.button {
+	text-align: center;
+	margin: 15px;
+}
+
+button {
+	background-color: rgb(80,133,236);
+	width: 30%;
+	height: 30px;
+	color: white;
+	border: none;
+	border-radius: 3px;
+}
+
+.sepaBG {
+	float: left;
+	width: 50%;
+	height: 50%;
+	background-color: red;
+	padding: 20% 0;
+}
