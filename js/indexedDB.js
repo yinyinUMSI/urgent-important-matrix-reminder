@@ -121,7 +121,7 @@ function createNewNote(formObj) {
   }
 
   let wholeNote = document.createElement("li");
-  let noteTitleEle = document.createElement("h5");
+  let noteTitleEle = document.createElement("h4");
   let noteTitleWords = document.createTextNode(formObj.eventTitle);
   let noteTitle = noteTitleEle.appendChild(noteTitleWords);
 
@@ -133,9 +133,14 @@ function createNewNote(formObj) {
   let noteMemoWords = document.createTextNode(formObj.eventMemo);
   let noteMemo = noteMemoEle.appendChild(noteMemoWords);
 
-  wholeNote.appendChild(noteTitle);
-  wholeNote.appendChild(noteTime);
-  wholeNote.appendChild(noteMemo);
-  wholeNote.style.cssText = "height:50px;width:100px;float:left";
+  wholeNote.style.cssText = "min-height:50px;width:20%;min-width:100px;padding:5px;float:left;list-style-type:none;margin:8px;background-color:white;";
+  noteTitleEle.style.cssText = "display:block;padding:3px 3px;background-color:rgb(248,248,248);margin:2px;text-align:center"
+  noteTimeEle.style.cssText = "display:block;padding:3px 3px;background-color:rgb(248,248,248);margin:2px;font-size:12px"
+  noteMemoEle.style.cssText = "display:block;padding:3px 3px;background-color:rgb(248,248,248);margin:2px;font-size:10px"
+  wholeNote.appendChild(noteTitleEle);
+  wholeNote.appendChild(noteTimeEle);
+  wholeNote.appendChild(noteMemoEle);
   parentElement.appendChild(wholeNote);
+  
+
 }
