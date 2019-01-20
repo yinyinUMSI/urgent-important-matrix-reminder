@@ -133,7 +133,7 @@ function createNewNote(formObj) {
   let noteMemoWords = document.createTextNode(formObj.eventMemo);
   let noteMemo = noteMemoEle.appendChild(noteMemoWords);
 
-  wholeNote.style.cssText = "min-height:50px;width:20%;min-width:100px;padding:5px;float:left;list-style-type:none;margin:8px;background-color:white;";
+  wholeNote.style.cssText = "min-height:100px;width:20%;min-width:100px;padding:5px;float:left;list-style-type:none;margin:8px;background-color:pink;";
   noteTitleEle.style.cssText = "display:block;padding:3px 3px;background-color:rgb(248,248,248);margin:2px;text-align:center"
   noteTimeEle.style.cssText = "display:block;padding:3px 3px;background-color:rgb(248,248,248);margin:2px;font-size:12px"
   noteMemoEle.style.cssText = "display:block;padding:3px 3px;background-color:rgb(248,248,248);margin:2px;font-size:10px"
@@ -141,6 +141,4 @@ function createNewNote(formObj) {
   wholeNote.appendChild(noteTimeEle);
   wholeNote.appendChild(noteMemoEle);
   parentElement.appendChild(wholeNote);
-  
-
 }
