@@ -1,5 +1,6 @@
 document.write("<script type='text/javascript' src='show.js'></script>");
-
+let dbId = 1;
+let cateArr = [0,0,0,0];
 
 function clickCompleteEvent() {
 	if (formValidation() == true) {
@@ -69,20 +70,45 @@ function addToDatabase(formObj) {
     			request.onsuccess = function (event) {
     			console.log('success add');
           /*createNewNote(formObj);*/
-          var newNote = new oneNote(formObj);
+          var newNote = new oneNote(formObj,dbId);
           newNote.showNote();
+          newNote.deleteAnimation();
+          dbId += 1;
   				};
 
   				request.onerror = function (event) {
     			console.log('add error');
   				};
-    		};
-			
-
-  			
+    		};  			
 		})();
 }
-   
+  
+function deleteFromDatabase(keyNo) {
+  var db;
+  var dbRequest = window.indexedDB.open("db2",1);
+  dbRequest.onerror = function(event) {
+    console.log("open failure");
+    return
+  }
+  dbRequest.onsuccess = function(event) {
+    db = dbRequest.result;
+    var transaction = db.transaction("Events","readwrite");
+    transaction.onerror = function(event) {
+      console.log("transaction failure");
+      return
+    }
+    transaction.oncomplete = function(event) {
+      console.log("trans complete");
+    }
+
+    var objectStore = transaction.objectStore("Events");
+    var obStoreRequest = objectStore.delete(`${keyNo}`);
+    obStoreRequest.onsuccess = function(event) {
+      console.log("delete success");
+    }
+  }
+
+} 
 
 
 function getFormValue() {
@@ -150,11 +176,13 @@ function getFormValue() {
 //method: set color, get the title, get the time, get the type, get the memo, show a note & set the style
 //*important method: delete a note
 
-function oneNote(formObj) {
+function oneNote(formObj,idNo) {
   this.eventTitle = formObj.eventTitle;
   this.eventTime = formObj.eventTime;
   this.eventMemo = formObj.eventMemo;
   this.eventType = formObj.eventType;
+  this.eventId = idNo;
+  this.cateId = cateArr
   this.deleteIcon = function () {
     return document.createElement('li');
   }
@@ -174,6 +202,25 @@ oneNote.prototype.getColor = function() {
       return '#5CB83B';
     }
 } //this part is subject to change
+
+oneNote.prototype.getCateId = function() {
+    if (this.eventType === "im&ur") {
+      cateArr[0]++;
+      return cateArr[0];
+    }
+    else if (this.eventType === "im&Nur") {
+      cateArr[1]++;
+      return cateArr[1];
+    }
+    else if (this.eventType === "Nim&ur") {
+      cateArr[2]++;
+      return cateArr[2];
+    }
+    else if (this.eventType === "Nim&Nur") {
+      cateArr[3]++;
+      return cateArr[3];
+    }
+} 
 
 oneNote.prototype.getParent = function() {
     if (this.eventType === "im&ur") {
@@ -231,6 +278,23 @@ oneNote.prototype.showNote = function() {
   noteMemoEle.style.cssText = "display:block;padding:3px 3px;margin:2px;font-size:10px";
 }
 
-oneNote.prototype.deleteNote = function() {
+oneNote.prototype.deleteAnimation = function() {
+  let This = this;
+  $(document).ready(function() {
+    $(".fa-check-circle").on("click",function() {
+      deleteFromDatabase(This.eventId);
+      $(this).parents("li").fadeOut('fast',function() {
+        $(this).remove();
+      });
+    });
+    $(".fa-check-circle").on("mouseenter",function() {
+    console.log(This.getCateId());
+    $(this).css("transform","scale(1.2)");
+    });
+    $(".fa-check-circle").on("mouseleave",function() {
+    console.log("this is mouseleave");
+    $(this).css("transform","scale(1)");
+    });
+  });
  
 }
