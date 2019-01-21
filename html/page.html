@@ -4,7 +4,6 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link href="../css/style.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="../js/show.js"></script>
     <script type="text/javascript" src="../js/indexedDB.js"></script>
 
 
@@ -15,49 +14,49 @@
 		<i id= "addButton" class="fas fa-plus-circle"></i>
 	</div>
 	<div id="notShow">
-		<form>
+		<form id="Form">
 			<div>
-				<label class="formLabel" for="eventTitle">Event Title</label>
+				<label class="formLabel" for="eventTitle">*Event Title</label>
 				<input class="inputShort" type="text" name="title" id="eventTitle">
 			</div>
 
 			<div>
-				<label class="formLabel" for="eventTime">Deadline</label>
-				<input class="inputShort" type="time" name="time" id="eventTime">
+				<label class="formLabel" for="eventTime">*Deadline</label>
+				<input class="inputShort" type="datetime-local" name="time" id="eventTime">
 			</div>
 
 			<div>
-				<label class="formLabel">Type</label>
+				<label class="formLabel">*Type</label>
 				<div class="radioGroup">
 				<div class="radioLine">
 					<input type="radio" id="im&ur" name="type" value="im&ur" checked>
-  					<label for="im&ur">Important & Urgent</label>
+  					<label for="im&ur">Urgent & Important</label>
   				</div>
 
   				<div class="radioLine">
-  					<input type="radio" id="im&Nur" name="type" value="im&Nur">
-  					<label for="im&Nur">Important but not urgent</label>
+  					<input type="radio" id="im&Nur" name="type" value="Nim&ur">
+  					<label for="im&Nur">Urgent & Not Importamt</label>
   				</div>
 
   				<div class="radioLine">
-  					<input type="radio" id="Nim&ur" name="type" value="Nim&ur">
-  					<label for="Nim&ur">Not important but Urgent</label>
+  					<input type="radio" id="Nim&ur" name="type" value="im&Nur">
+  					<label for="Nim&ur">Not Urgemt & Important</label>
   				</div>
 
   				<div class="radioLine">
   					<input type="radio" id="Nim&Nur" name="type" value="Nim&Nur">
-  					<label for="Nim&Nur">Not important and not urgent</label>
+  					<label for="Nim&Nur">Not Urgent & Not Important</label>
   				</div>
   				</div>
   			</div>
   			<div class="clearFix"></div>
   			<div>
   				<label class="formLabel" for="memo">Memo</label>
-				<textarea class="inputLong" name="memo" id="memo" rows="4" cols="50">Enter your memo...</textarea>
+				<textarea class="inputLong" name="memo" id="memo" rows="4" cols="50"></textarea>
 			</div>
 
 			<div class="button">
-				<button class="button" type="button" onclick="clickCompleteEvent()">Complete</button>
+				<button class="button" type="button" onclick="clickCompleteEvent();">Complete</button>
 			</div>
 		</form>
 	</div>

@@ -35,7 +35,7 @@ body {
 
 	background-color: white;
 	float: right;
-	border-radius: 4px;
+	border-radius: 8px;
 	box-shadow: 2px 2px 6px 2px rgb(230,230,230);
 	
 	width: 20%;
@@ -59,25 +59,30 @@ body {
 	display: block;
 	width: 80%;
 	line-height: 25px;
-	margin: 5px 30px;
-
+	margin: 5px auto;
+	border: none;
+	border-radius: 4px;
+	background-color: rgb(235,235,235);
 }
 
 .inputLong {
 	display: block;
 	width: 80%;
-	margin: 5px 30px;
+	margin: 5px auto;
+	border: none;
+	border-radius: 4px;
+	background-color: rgb(235,235,235);
 }
 
 .radioLine {
 	/*display: inline;*/
-	float: left;
-	margin: 3px 5px;
+	
+	/*margin: 3px 10px;*/
 }
 
 .radioGroup {
 	width: 80%;
-	margin: 5px 27px;
+	margin: 5px auto;
 }
 
 .clearFix {
@@ -94,6 +99,7 @@ button {
 	width: 30%;
 	height: 30px;
 	color: white;
+	font-weight: border;
 	border: none;
 	min-width: 80px;
 	border-radius: 3px;
